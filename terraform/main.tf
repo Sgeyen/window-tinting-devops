@@ -25,7 +25,6 @@ terraform {
 
 resource "aws_s3_bucket" "mongo_backup" {
   bucket = "${var.cluster_name}-mongo-backups-${random_id.suffix.hex}"
-  acl    = "public-read"
 
   tags = {
     Name = "${var.cluster_name}-mongo-backup"
