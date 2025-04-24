@@ -22,6 +22,11 @@ jobs:
         echo "TF_VAR_aws_access_key=${{ secrets.AWS_ACCESS_KEY_ID }}" >> $GITHUB_ENV
         echo "TF_VAR_aws_secret_key=${{ secrets.AWS_SECRET_ACCESS_KEY }}" >> $GITHUB_ENV
 
+    - name: Debug AWS Credentials Lengths
+      run: |
+        echo "Length of Access Key: ${#TF_VAR_aws_access_key}"
+        echo "Length of Secret Key: ${#TF_VAR_aws_secret_key}"
+
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v2
 
