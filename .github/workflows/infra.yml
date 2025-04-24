@@ -17,6 +17,11 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
+    - name: Set AWS secrets as environment variables
+      run: |
+        echo "TF_VAR_aws_access_key=${{ secrets.AWS_ACCESS_KEY_ID }}" >> $GITHUB_ENV
+        echo "TF_VAR_aws_secret_key=${{ secrets.AWS_SECRET_ACCESS_KEY }}" >> $GITHUB_ENV
+
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v2
 
