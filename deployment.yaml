@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: window-tinting-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: window-tinting-app
+  template:
+    metadata:
+      labels:
+        app: window-tinting-app
+    spec:
+      serviceAccountName: app-admin
+      containers:
+      - name: window-tinting-app
+        image: 253490792199.dkr.ecr.us-east-2.amazonaws.com/window-tinting-app:latest
+        ports:
+        - containerPort: 80
+        env:
+        - name: MONGO_URI
+          value: mongodb://admin:pass123@3.132.156.193:27017/admin
+

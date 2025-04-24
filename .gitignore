@@ -1,0 +1,10 @@
+# Terraform exclusions
+.terraform/
+terraform.tfstate
+terraform.tfstate.*
+tfplan
+
+# General junk
+*.log
+*.gz
+*.tar
